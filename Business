@@ -3,34 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Definitions</title>
+    <title>Business Studies Terms</title>
     <style>
         .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .tooltip-box {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 250px;
-            top: 30px;
-            left: 0;
-            z-index: 1;
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
         }
-
-        .tooltip:hover .tooltip-box {
-            display: block;
+        .term {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <p>Hover over <span class="tooltip">JavaScript
-        <div class="tooltip-box">A programming language commonly used in web development.</div>
-    </span> for more information.</p>
+
+<h2>HSC Business Studies - Year 12 Key Terms</h2>
+<p>
+    <span class="term" data-definition="Definition of Operations here">Operations</span>: 
+    Strategies for effective operations management in large businesses.
+</p>
+<p>
+    <span class="term" data-definition="Definition of Marketing here">Marketing</span>: 
+    Elements involved in the development and implementation of successful marketing strategies.
+</p>
+<p>
+    <span class="term" data-definition="Definition of Finance here">Finance</span>: 
+    Interpreting financial information for business planning and management.
+</p>
+<p>
+    <span class="term" data-definition="Definition of Human Resources here">Human Resources</span>: 
+    Contribution of human resource management to business performance.
+</p>
+
+<div id="tooltip" class="tooltip"></div>
+
+<script>
+    document.querySelectorAll('.term').forEach(term => {
+        term.addEventListener('mouseover', event => {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.textContent = event.target.getAttribute('data-definition');
+            tooltip.style.display = 'block';
+            tooltip.style.position = 'absolute';
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY + 10}px`;
+        });
+        
+        term.addEventListener('mouseout', () => {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.display = 'none';
+        });
+    });
+</script>
+
 </body>
 </html>
