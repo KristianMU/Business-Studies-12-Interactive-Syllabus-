@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Definitions</title>
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip-box {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 250px;
+            top: 30px;
+            left: 0;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltip-box {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <p>Hover over <span class="tooltip">JavaScript
+        <div class="tooltip-box">A programming language commonly used in web development.</div>
+    </span> for more information.</p>
+</body>
+</html>
